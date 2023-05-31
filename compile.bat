@@ -1,5 +1,5 @@
 @echo off
-echo Unzip http://download.savannah.gnu.org/releases/tinycc/tcc-0.9.27-win64-bin.zip to C:\rawdraw\tcc
+echo Unzip http://download.savannah.gnu.org/releases/tinycc/tcc-0.9.27-win64-bin.zip to C:\tcc
 echo Also, if compiling with OpenGL, download http://download.savannah.nongnu.org/releases/tinycc/winapi-full-for-0.9.27.zip and overwrite the include, etc. folders in C:\tcc.
 echo Don't worry.  It includes the i386 compiler in the win64 build.
 
@@ -9,8 +9,8 @@ set LDFLAGS=-lkernel32 -lole32 -lgdi32 -luser32 -lsetupapi -ldbghelp -lws2_32 -l
 
 set SOURCES=main.c
   
-set ARCH_SPECIFIC=-L32 C:\windows\system32\winmm.dll -DWIN32_LEAN_AND_MEAN 
-set CC=C:\tcc\i386-win32-tcc.exe
+set ARCH_SPECIFIC=-L32 -DWIN32_LEAN_AND_MEAN 
+set CC=C:\tcc2\i386-win32-tcc.exe
 
 @echo on
 %CC% %CFLAGS% %INCLUDES% %ARCH_SPECIFIC% %SOURCES% %LDFLAGS% -o out.exe

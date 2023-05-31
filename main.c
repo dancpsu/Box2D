@@ -1,7 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef TCC
+#define _MATH_H_
+#define REMATH(x)   double __cdecl x( double f ); float x##f(float v) { return x(v); }
+
+REMATH( cos );
+REMATH( sin );
+REMATH( tan );
+REMATH( sqrt );
+#define fabsf(f) f > 0.0f ? f : -f
+#else
 #include <math.h>
-#include <float.h>
+#include <float.h>  
+#endif
+
 #include "os_generic.h"
 
 #define CNFG3D
