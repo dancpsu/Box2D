@@ -10,7 +10,7 @@ set LDFLAGS=-lkernel32 -lole32 -lgdi32 -luser32 -lsetupapi -ldbghelp -lws2_32 -l
 set SOURCES=main.c
   
 set ARCH_SPECIFIC=-L32 -DWIN32_LEAN_AND_MEAN 
-set CC=C:\tcc2\i386-win32-tcc.exe
+set CC=C:\tcc\i386-win32-tcc.exe
 
 @echo on
 %CC% %CFLAGS% %INCLUDES% %ARCH_SPECIFIC% %SOURCES% %LDFLAGS% -o out.exe
